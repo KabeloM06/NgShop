@@ -12,7 +12,7 @@
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
             <td mat-cell *matCellDef="let element">
-                <span class="trancate max-w-xs">{{element.name}}</span>
+                <span class="trancate max-w-xs block">{{element.name}}</span>
             </td>
             <td mat-footer-cell *matFooterCellDef>
                
@@ -30,7 +30,13 @@
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Quantity</th>
             <td mat-cell *matCellDef="let element">
+                <button mat-icon-button>
+                    <mat-icon>remove</mat-icon>
+                </button>
                 <span>{{element.quantity}}</span>
+                <button mat-icon-button>
+                    <mat-icon>add</mat-icon>
+                </button>
             </td>
             <td mat-footer-cell *matFooterCellDef>
                
@@ -39,7 +45,7 @@
         <ng-container matColumnDef="total">
             <th mat-header-cell *matHeaderCellDef>Total</th>
             <td mat-cell *matCellDef="let element">
-                <span>{{element.total | currency:'zar'}}</span>
+                <span>{{element.quantity * element.price | currency:'zar'}}</span>
             </td>
             <td mat-footer-cell *matFooterCellDef>
                <span class="font-bold py-5 block">
@@ -53,13 +59,16 @@
                 <button mat-raised-button color="warn" class="float-right">Clear all</button>
             </th>
             <td mat-cell *matCellDef="let element">
-                <span>{{element.total | currency:'zar'}}</span>
+                <button mat-mini-fab color="warn" class="float-right">
+                    <mat-icon>close</mat-icon>
+                </button>
             </td>
             <td mat-footer-cell *matFooterCellDef>
-               <!-- <span class="font-bold py-5 block">
-                {{getTotal(cart.items) | currency:'zar'}}
-               </span> -->
+                <button mat-raised-button class="bg-green-600 text-white float-right">
+                    Proceed To Checkout
+                </button>
             </td>
+
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

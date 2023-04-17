@@ -19,7 +19,9 @@ export class HeaderComponent implements OnInit {
   set cart(cart: Cart){
     this._cart = cart;
 
-    this.itemsQuantity = cart.items.map((item) => item.quantity).reduce((prev, current) => prev + current, 0);
+    this.itemsQuantity = cart.items
+      .map((item) => item.quantity)
+      .reduce((prev, current) => prev + current, 0);
   }
 
   constructor() { }

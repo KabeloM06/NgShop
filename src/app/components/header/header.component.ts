@@ -34,4 +34,8 @@ export class HeaderComponent implements OnInit {
     return this.cartService.getTotal(items);
   }
 
+  onClearCart(){
+    this.cartService.clearCart();
+  }
+
 }

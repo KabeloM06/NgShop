@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Cart } from 'src/app/models/cart.model';
+import { Cart, CartItem } from 'src/app/models/cart.model';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -24,9 +25,13 @@ export class HeaderComponent implements OnInit {
       .reduce((prev, current) => prev + current, 0);
   }
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+  }
+
+  getTotal(items: Array<CartItem>): number{
+    return this.cartService.getTotal(items);
   }
 
 }

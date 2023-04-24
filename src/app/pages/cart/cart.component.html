@@ -21,7 +21,7 @@
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef>Price</th>
             <td mat-cell *matCellDef="let element">
-                <span class="trancate max-w-xs">{{element.price | currency:'zar'}}</span>
+                <span class="trancate max-w-xs">{{element.price | currency}}</span>
             </td>
             <td mat-footer-cell *matFooterCellDef>
                
@@ -45,11 +45,11 @@
         <ng-container matColumnDef="total">
             <th mat-header-cell *matHeaderCellDef>Total</th>
             <td mat-cell *matCellDef="let element">
-                <span>{{element.quantity * element.price | currency:'zar'}}</span>
+                <span>{{element.quantity * element.price | currency}}</span>
             </td>
             <td mat-footer-cell *matFooterCellDef>
                <span class="font-bold py-5 block">
-                {{getTotal(cart.items) | currency:'zar'}}
+                {{getTotal(cart.items) | currency}}
                </span>
             </td>
         </ng-container>
